@@ -53,6 +53,37 @@ describe('Testing JSON Placeholder API', () => {
 
 		})
 	})
+
+	it('Validating Response Body - Checking Post ID - Get Method', () => {
+		cy.request({
+			method: 'GET',
+			url: Cypress.env('baseUrl') +'/1',
+			headers: {
+				'Content-Type': "application/json"
+			},
+			postId: 1
+		}).then((response) => {
+			console.log(response)
+			expect(response.body).to.not.be.null
+			expect(response.body).to.have.all.keys('body', 'id', 'title', 'userId')
+			expect(response.body.id).to.eq(1).and.not.eq(2)
+		})
+	})
+	it('Validating Response Body - Checking User ID - Get Method', () => {
+		cy.request({
+			method: 'GET',
+			url: Cypress.env('baseUrl') +'?userId=1',
+			headers: {
+				'Content-Type': "application/json"
+			},
+			postId: 1
+		}).then((response) => {
+			console.log(response)
+			expect(response.body).to.not.be.null
+			expect(response.body[0]).to.have.all.keys('body', 'id', 'title', 'userId')
+			expect(response.body[0].userId).to.eq(1).and.not.eq(2)
+		})
+	})
 	/**
 	 * This scenario will create a simple POST request with a complete body and check its status code to be at least 200 but not greather then then 400 
 	 * This will ensure that any status code outside the success spectre will not be there. 
