@@ -12,7 +12,6 @@ describe('Testing JSON Placeholder API GET Method', () => {
 				'Content-Type': "application/json"
 			}
 		}).then((response) => {
-			
 			expect(response.headers).to.not.be.null
 			expect(response).to.have.property('status', 200).and.not.greaterThan(400)
 		})
@@ -28,7 +27,6 @@ describe('Testing JSON Placeholder API GET Method', () => {
 				'Content-Type': "application/json"
 			}
 		}).then((response) => {
-			
 			expect(response.headers).to.not.be.null
 			expect(response.headers).to.have.property('content-type', 'application/json; charset=utf-8')
 		})
@@ -44,7 +42,6 @@ describe('Testing JSON Placeholder API GET Method', () => {
 				'Content-Type': "application/json"
 			}
 		}).then((response) => {
-			
 			expect(response.body).to.not.be.null
 			expect(response.body.length).to.eq(100)
 			Cypress._.each(response.body, (body) => {
@@ -82,11 +79,9 @@ describe('Testing JSON Placeholder API GET Method', () => {
 			},
 			'failOnStatusCode': false
 		}).then((response) => {
-			
 			expect(response).to.have.property('status', 404).and.greaterThan(400)
 		})
 	})
-	
 })
 describe('Testing JSON Placeholder API POST Method', () => {
 	/**
@@ -107,7 +102,6 @@ describe('Testing JSON Placeholder API POST Method', () => {
 				'userId': 1
 			}
 		}).then((response) => {
-			
 			expect(response.headers).to.not.be.null
 			expect(response).to.have.property('status', 201).and.not.greaterThan(400)
 		})
@@ -128,7 +122,6 @@ describe('Testing JSON Placeholder API POST Method', () => {
 				'userId': 1
 			}
 		}).then((response) => {
-			
 			expect(response.headers).to.not.be.null
 			expect(response.headers).to.have.property('content-type', 'application/json; charset=utf-8')
 		})
@@ -149,7 +142,6 @@ describe('Testing JSON Placeholder API POST Method', () => {
 				'userId': 1
 			}
 		}).then((response) => {
-			
 			expect(response.statusText).to.be.equal('Created')
 			expect(response.isOkStatusCode).to.be.equal(true)
 			expect(response.body).to.have.property('id', 101)
@@ -173,7 +165,6 @@ describe('Testing JSON Placeholder API POST Method', () => {
 				'body': 'Testing APIs with Cypress and Javascript'
 			}
 		}).then((response) => {
-			
 			expect(response.statusText).to.be.equal('Created')
 			expect(response.isOkStatusCode).to.be.equal(true)
 			expect(response.body).to.have.property('id', 101)
