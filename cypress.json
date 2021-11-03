@@ -1,0 +1,5 @@
+{
+	"env": {
+		"baseUrl": "http://jsonplaceholder.typicode.com/posts"	
+	}
+}
