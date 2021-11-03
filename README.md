@@ -10,3 +10,8 @@ npm i .
 ```sh
 npm run cypress:open
 ```
+
+## Rodar os Testes
+
+Se tudo deu certo nos passos anteriores, vai ser aberta uma janela com o arquivo de teste. 
+Selecione esse arquivo que os testes vão, automaticamente, rodar e fazer as requisiçoes e verificações necessárias
