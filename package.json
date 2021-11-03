@@ -1,0 +1,22 @@
+{
+  "name": "cypress-test-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "./node_modules/.bin/cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrohcavalcante/cypress-test-api.git"
+  },
+  "author": "Pedro H B Cavalcante",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedrohcavalcante/cypress-test-api/issues"
+  },
+  "homepage": "https://github.com/pedrohcavalcante/cypress-test-api#readme",
+  "dependencies": {
+    "cypress": "^8.7.0"
+  }
+}
