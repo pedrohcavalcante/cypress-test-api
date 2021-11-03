@@ -54,6 +54,9 @@ describe('Testing JSON Placeholder API GET Method', () => {
 		})
 	})
 
+	/**
+	 * Checking if the endpoint returns only the post identified with the provided ID
+	*/
 	it('Validating Response Body - Checking Post ID', () => {
 		cy.request({
 			method: 'GET',
@@ -62,13 +65,14 @@ describe('Testing JSON Placeholder API GET Method', () => {
 				'Content-Type': "application/json"
 			},
 		}).then((response) => {
-			
 			expect(response.body).to.not.be.null
 			expect(response.body).to.have.all.keys('body', 'id', 'title', 'userId')
 			expect(response.body.id).to.eq(1).and.not.eq(2)
 		})
 	})
-
+	/**
+	 * Checking the response for a request with post ID greater then 100
+	*/
 	it('Validating Response Body - Checking Post ID greater than 100', () => {
 		cy.request({
 			method: 'GET',
@@ -154,6 +158,9 @@ describe('Testing JSON Placeholder API POST Method', () => {
 			expect(response.body).to.have.property('userId', 1)
 		})
 	})
+	/**
+	 * This scenario will check the creation of a post withou using the userId 
+	*/
 	it('Validating Response Body - Without User ID', () => {
 		cy.request({
 			method: 'POST',
