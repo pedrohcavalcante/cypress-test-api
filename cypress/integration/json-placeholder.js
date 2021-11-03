@@ -1,4 +1,9 @@
 describe('Testing JSON Placeholder API', () => {
+	/**
+	 * This scenario will be handling a simple GET request and checking its status code to be at least 200 but not greather then 400 
+	 * This will ensure that any status code outside the success spectre will not be there. 
+	 * Based on https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status 
+	*/
 	it ('Validating Response Code - Get Method', () => {
 		cy.request({
 			method: 'GET',
@@ -12,6 +17,9 @@ describe('Testing JSON Placeholder API', () => {
 			expect(response).to.have.property('status', 200).and.not.greaterThan(400)
 		})
 	})
+	/**
+	 * This scenario will check if the content-type present within the header will be matching the expected application/json
+	*/
 	it('Validating Response Header - Get Method', () => {
 		cy.request({
 			method: 'GET',
@@ -25,6 +33,9 @@ describe('Testing JSON Placeholder API', () => {
 			expect(response.headers).to.have.property('content-type', 'application/json; charset=utf-8')
 		})
 	})
+	/**
+	 * This scenario will check if all the objects within the response body will have the keys related to the endpoint. 
+	*/
 	it('Validating Response Body - Get Method', () => {
 		cy.request({
 			method: 'GET',
@@ -42,6 +53,11 @@ describe('Testing JSON Placeholder API', () => {
 
 		})
 	})
+	/**
+	 * This scenario will create a simple POST request with a complete body and check its status code to be at least 200 but not greather then then 400 
+	 * This will ensure that any status code outside the success spectre will not be there. 
+	 * Based on https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status 
+	*/
 	it ('Validating Response Code - Post Method', () => {
 		cy.request({
 			method: 'POST',
@@ -60,6 +76,9 @@ describe('Testing JSON Placeholder API', () => {
 			expect(response).to.have.property('status', 201).and.not.greaterThan(400)
 		})
 	})
+	/**
+	 * This scenario will check the response header for a simple POST request with a complete body
+	*/
 	it('Validating Response Header - Post Method', () => {
 		cy.request({
 			method: 'POST',
@@ -78,6 +97,9 @@ describe('Testing JSON Placeholder API', () => {
 			expect(response.headers).to.have.property('content-type', 'application/json; charset=utf-8')
 		})
 	})
+	/**
+	 * This scenario will check if the response will have the new post created by checking the data from title, body, userId and Id
+	*/
 	it('Validating Response Body - Post Method', () => {
 		cy.request({
 			method: 'POST',
